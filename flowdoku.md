@@ -2,30 +2,10 @@
 
 ## Hint wording rewrite
 
-**Open.** Waiting for the owner's picks. Proposed changes to src/copy/hints.ts, shown as filled examples.
-
-- Walk through Result
-  - "So 6 goes in this cell." becomes "Place 6 here."
-  - "So 2 comes out of the notes of this cell." becomes "Remove 2 from this cell's notes."
-  - Same pattern for the plural versions.
-- Full House: "Every other cell in row 6 is filled, so this is 6." becomes "This is the last empty cell in row 6. Only
-  6 is missing."
-- Hidden Single: "The 2s leave only this cell for 2 in the bottom right box, so this is 2." becomes "The only place
-  left for 2 in the bottom right box is here. The other 2s block the rest." The step variants follow the same shape.
-- Naked Single: "Its row, column and box hold every digit but 3, so this is 3." becomes "Its row, column and box
-  already have every digit except 3."
-- Naked subsets: "only hold" becomes "can only be".
-- Hidden subsets: "4 and 7 only fit these 2 cells of column 5, so those cells hold nothing else." becomes "In column
-  5, 4 and 7 only fit these 2 cells, so remove their other notes."
-- Chains and wings: "is 7" becomes "must be 7". For example "One end of this chain must be 7, so this cell, seeing
-  both ends, can't be 7."
-- Rectangles: "could swap and give 2 answers, so it isn't." becomes "would allow 2 solutions. So it isn't 1."
-  "answers" becomes "solutions" everywhere.
-- Finned fish: "Any way they fill" becomes "However they're placed".
-- Empty Rectangle
-  - "3 is on this row or column" becomes "3 must sit on this row or column".
-  - "Either one, with this pair, rules out 3 in this cell." becomes "Either way, with this pair, 3 can't go in this
-    cell."
+**Done** 2026-10-11 (games-web 886a52c). Steps go by letter (A to P) and the hint header reads "NAME, STEP B". No cell
+counts. A digit never sits next to a row, column or step number. Digit first sentences in fish, pointing and claiming.
+"must be" in chains, "can only be ... or ..." in naked subsets, "two solutions" in rectangles. The live words are in
+games/game-sudoku/docs/hint-copy.md.
 
 ## Techniques
 
