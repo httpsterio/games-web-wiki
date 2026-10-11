@@ -12,6 +12,7 @@ Open questions are marked **Open**.
 ## Pages
 
 - [Roadmap](roadmap.md): next refactor steps, waiting calls, before going public.
+- [Storage upgrade](storage-upgrade.md): the move to IndexedDB, steps 1 and 2 done, step 3 designed.
 - [Decided rules](decided-rules.md): rules agreed for all games, as recorded in planning.
 - [Flowdoku](flowdoku.md): hint wording, technique pages, small open items.
 - [Queens](queens.md): name, daily start date, scoring.
