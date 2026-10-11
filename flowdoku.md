@@ -7,6 +7,10 @@ counts. A digit never sits next to a row, column or step number. Digit first sen
 "must be" in chains, "can only be ... or ..." in naked subsets, "two solutions" in rectangles. The live words are in
 games/game-sudoku/docs/hint-copy.md.
 
+Hint text size, same day (games-web 1f520d9): the sentence is 1rem with line height 1.5, the label above it 0.8rem and a
+little thicker. Drawn by games/game-sudoku/src/components/HintText.svelte, used by the hint panel and the technique
+walk-through.
+
 ## Techniques
 
 - **Open.** Naked Triple is never the easiest step, so it has no examples. Recommended: drop it from the technique
