@@ -33,3 +33,12 @@ git subtree pull --prefix=games/game-jam https://github.com/httpsterio/game-jam 
 
 - An earlier plan put the lifetime unlock first. Now subscriptions are the main business and the lifetime unlock sits
   alongside.
+
+## Updates
+
+- In their own repos, Queens and Jam installed updates silently on the menu or in the background and showed an Updated
+  toast. Flowdoku showed a New version strip with Later and Update.
+- In games-web the shell first showed Flowdoku's strip in every game, with Later kept for the browser session.
+- Since 2026-10-11 updates apply silently, with no message: at launch before anything is drawn, or when the page hides
+  on a menu or list. The rules are in games-web docs/decisions.md, Updates.
+
