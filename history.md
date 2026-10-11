@@ -6,6 +6,9 @@ How things used to be.
 
 - Each game started in its own repo: httpsterio/sudoku (Flowdoku), httpsterio/game-queens, httpsterio/game-jam.
 - Flowdoku shipped from httpsterio/sudoku to flowdoku.netlify.app, with a test build at dev--flowdoku.netlify.app.
+  flowdoku.netlify.app still builds from that old repo.
+- All three games now build together, as one app, from games-web to conceptgames.netlify.app. No game builds alone
+  there.
 - The games moved into httpsterio/games-web from 2026-10-09 with git subtree, then got shared packages in packages/.
 - Since 2026-10-11 games-web is the only source. The three old repos are retired. No edits or subtree pulls unless the
   owner asks for a specific fix.

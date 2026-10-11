@@ -25,10 +25,9 @@
 
 ## Before going public
 
-- Buy the domain. Then set VITE_PUBLIC_URL per game and show move notices on the old sites. Flowdoku has a move
-  notice. Queens and Jam don't.
-- **Open.** The old repos are retired, so adding move notices to the Queens and Jam sites, and deciding where
-  flowdoku.netlify.app builds from, need a call from the owner.
+- Buy the domain. Then set VITE_PUBLIC_URL per game.
+- Old sites get no move notices for now. Flowdoku's old site has one already. Queens and Jam don't. If that changes,
+  the owner adds one later.
 - Player data doesn't move between sites by itself. Players need transfer codes or files.
 - Telemetry on the new site needs one consent rule for all games, the Netlify functions and env vars, and a Metabase
   connection to prod.
