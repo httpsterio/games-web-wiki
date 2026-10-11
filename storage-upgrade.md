@@ -1,7 +1,8 @@
 # Storage upgrade
 
-Plan for moving the games' saves from localStorage to IndexedDB. Steps 1 and 2 are done. Step 3 is designed and the
-owner's calls are in (2026-10-12). Touches saves, so it is LOCAL CLAUDE work.
+Plan for moving the games' saves from localStorage to IndexedDB. Steps 1, 2 and 3 are built (2026-10-12). Step 3 waits
+for its browser test before the push. How it works now is in games-web docs/decisions.md, Storage. Touches saves, so it
+is LOCAL CLAUDE work.
 
 ## Why
 
@@ -20,6 +21,9 @@ owner's calls are in (2026-10-12). Touches saves, so it is LOCAL CLAUDE work.
    app, where the browser decides without asking the player. In a normal tab Firefox would show a prompt.
 
 ## Step 3 design
+
+Built as designed, with one addition: transfer modules use raw text reads and writes (`loadRaw`, `saveRaw`), so
+transfer codes see exactly the bytes they saw in localStorage.
 
 ### The store stays synchronous
 
