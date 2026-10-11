@@ -1,7 +1,7 @@
 # Storage upgrade
 
-Plan for moving the games' saves from localStorage to IndexedDB. Steps 1 and 2 are done. This page is the design for
-step 3, waiting for the owner. Touches saves, so it is LOCAL CLAUDE work.
+Plan for moving the games' saves from localStorage to IndexedDB. Steps 1 and 2 are done. Step 3 is designed and the
+owner's calls are in (2026-10-12). Touches saves, so it is LOCAL CLAUDE work.
 
 ## Why
 
@@ -42,8 +42,8 @@ now. Its tests don't change.
 
 ### What moves
 
-Everything under the games' prefixes moves, settings included. One store and one rule is simpler than a list of keys
-that stay behind. Session storage keys stay where they are. The shell's theme key stays in localStorage, because it is
+Everything under the games' prefixes moves, settings included (owner, 2026-10-12). One store and one rule is simpler
+than a list of keys that stay behind. Session storage keys stay where they are. The shell's theme key stays in localStorage, because it is
 read before the store opens.
 
 One database, `games`, one object store, `kv`. Key: the full key as now (`queens:progress`). Value: the same JSON
@@ -63,8 +63,11 @@ If any step fails, the marker is not written, localStorage stays the store, and 
 
 The marker says the data is in IndexedDB, but the database won't open (blocked, a Safari bug, a timeout of about 3
 seconds). Falling back to localStorage would show empty saves, and anything played would be lost or would overwrite
-real data later. So the store runs from memory only for that session: play works, nothing is written, and the player
-is told saving is off. **Open:** what the player is told, and where.
+real data later. So the store runs from memory only for that session: play works and nothing is written. It never falls back to
+localStorage after the move (owner, 2026-10-12).
+
+The player is told twice: a toast at launch, and a line that stays at the top of settings. Both say: "Progress can't be
+saved right now. Reopen the app to try again."
 
 ### Code that goes straight to localStorage
 
@@ -84,17 +87,18 @@ themselves.
 
 ### Tests
 
-- Unit tests for the store with a fake IndexedDB (fake-indexeddb as a dev dependency): open, read, write, flush,
+- Unit tests for the store with a fake IndexedDB (fake-indexeddb as a dev dependency, owner, 2026-10-12): open, read, write, flush,
   migration, failed migration, the marker without a database, two tabs.
 - A browser test on a real build: old localStorage saves for all three games, upgrade, every save still there, transfer
   codes the same before and after, a second launch removes the localStorage copies.
 - The long runs go to opencode.
 
-### Open for the owner
+### Owner's calls, 2026-10-12
 
-- **Open.** The message when saving is off for a session (IndexedDB failed after the move).
-- **Open.** fake-indexeddb as a new dev dependency, for the tests.
-- **Open.** Settings move too (recommended), or stay in localStorage as the roadmap first said.
+- When the database fails after the move, the session runs without saving. A toast at launch and a lasting line at the
+  top of settings say "Progress can't be saved right now. Reopen the app to try again." Never fall back to localStorage.
+- fake-indexeddb is added as a dev dependency for the tests.
+- Settings move too.
 
 ## Later steps
 
