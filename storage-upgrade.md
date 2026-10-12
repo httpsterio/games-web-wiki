@@ -22,8 +22,8 @@ is LOCAL CLAUDE work.
 
 ## Step 3 design
 
-Built as designed, with one addition: transfer modules use raw text reads and writes (`loadRaw`, `saveRaw`), so
-transfer codes see exactly the bytes they saw in localStorage.
+Built as designed, without the migration (see No migration). Transfer modules use raw text reads and writes
+(`loadRaw`, `saveRaw`), so transfer codes see exactly the bytes they saw in localStorage.
 
 ### The store stays synchronous
 
@@ -53,22 +53,17 @@ read before the store opens.
 One database, `games`, one object store, `kv`. Key: the full key as now (`queens:progress`). Value: the same JSON
 text as now. Keeping the text, not objects, means transfer codes compare and write exactly the same bytes as today.
 
-### Migration, once per device
+### No migration
 
-1. First launch with this version: copy every prefixed localStorage key into IndexedDB in one transaction.
-2. When the transaction completes, read every key back and compare it with localStorage.
-3. Only if all match, write the marker `shell:storage = idb` to localStorage. From then on the store uses IndexedDB.
-4. The localStorage copies stay for one more launch. At the next launch that opens the database and finds the marker,
-   they are removed. A broken first run can't lose anything.
+Old localStorage saves are not moved: there are no players yet, so they can be wiped (owner, 2026-10-12). IndexedDB is
+the store from the first launch. Game keys left in localStorage are removed at launch, so nothing reads them. The copy,
+check and marker design that was here is dropped.
 
-If any step fails, the marker is not written, localStorage stays the store, and the next launch tries again.
+### When IndexedDB fails
 
-### When IndexedDB fails after the move
-
-The marker says the data is in IndexedDB, but the database won't open (blocked, a Safari bug, a timeout of about 3
-seconds). Falling back to localStorage would show empty saves, and anything played would be lost or would overwrite
-real data later. So the store runs from memory only for that session: play works and nothing is written. It never falls back to
-localStorage after the move (owner, 2026-10-12).
+The database won't open (blocked, missing, a Safari bug, no answer within about 3 seconds). Using localStorage then
+would split saves between two places. So the store runs from memory only for that session: play works and nothing is written. It never uses localStorage
+for game keys in the app (owner, 2026-10-12).
 
 The player is told twice: a toast at launch, and a line that stays at the top of settings. Both say: "Progress can't be
 saved right now. Reopen the app to try again."
@@ -91,15 +86,17 @@ themselves.
 
 ### Tests
 
-- Unit tests for the store with a fake IndexedDB (fake-indexeddb as a dev dependency, owner, 2026-10-12): open, read, write, flush,
-  migration, failed migration, the marker without a database, two tabs.
-- A browser test on a real build: old localStorage saves for all three games, upgrade, every save still there, transfer
-  codes the same before and after, a second launch removes the localStorage copies.
+- Unit tests for the store with a fake IndexedDB (fake-indexeddb as a dev dependency, owner, 2026-10-12): read,
+  write, remove, flush, old localStorage game keys wiped, a failed or silent database, no IndexedDB, a game on its own,
+  two tabs.
+- A browser test on a real build: old localStorage game keys wiped and not read, saves in the database read by all
+  three games, play writes to the database only, a stuck database shows the toast and the settings line and changes
+  nothing, the next launch has everything back.
 - The long runs go to opencode.
 
 ### Owner's calls, 2026-10-12
 
-- When the database fails after the move, the session runs without saving. A toast at launch and a lasting line at the
+- When the database fails, the session runs without saving. A toast at launch and a lasting line at the
   top of settings say "Progress can't be saved right now. Reopen the app to try again." Never fall back to localStorage.
 - fake-indexeddb is added as a dev dependency for the tests.
 - Settings move too.
