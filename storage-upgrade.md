@@ -103,5 +103,5 @@ themselves.
 
 ## Later steps
 
-4. Export everything as a file, from the selector. Uses the store's keys across all prefixes.
+4. Replaced by the one save file, see [App settings and save file](app-settings-and-save-file.md).
 5. A gentle add to home screen nudge for iPhone players. Wording and placement are the owner's call.

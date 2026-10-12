@@ -19,9 +19,8 @@
 
 ## Recommended, waiting for the owner
 
-- **Open.** Settings as a full height sheet over the current screen in every game. The same component from menus and
-  mid game, closed by X or one back press. Built once in the shared packages, starting from Flowdoku's sheet.
-- **Open.** One toast style and one transfer code core for all games, with a schema per game.
+- Shared settings and one save file for all games: decided, see [App settings and save file](app-settings-and-save-file.md).
+- **Open.** One toast style for all games. The transfer codes are replaced by the one save file.
 - **Open.** Daily hubs (Flowdoku's Daily page, Queens' and Jam's Daily page) are not safe points for silent updates.
   They hold nothing that a reload could lose, so they could be added.
 
