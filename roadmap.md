@@ -6,7 +6,7 @@
    Navigation uses the Queens and Jam model, which restores the screen after a reload. Flowdoku adopts it.
    Theme gets a System option in every game.
 2. Unify behaviour: settings sheet, toasts, transfer core.
-3. Storage upgrade. Steps 1 and 2 are done. The design for the move is in [Storage upgrade](storage-upgrade.md).
+3. Storage upgrade. Steps 1 to 3 are live: saves are in IndexedDB. Steps 4 and 5 are left, see [Storage upgrade](storage-upgrade.md).
    - Move saves and logs to IndexedDB. Keep only small settings in localStorage.
    - Ask the browser for persistent storage.
    - Add an Export everything backup, as a file only, in the game selector.

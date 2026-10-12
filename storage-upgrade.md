@@ -1,7 +1,7 @@
 # Storage upgrade
 
-Plan for moving the games' saves from localStorage to IndexedDB. Steps 1, 2 and 3 are built (2026-10-12). Step 3 waits
-for its browser test before the push. How it works now is in games-web docs/decisions.md, Storage. Touches saves, so it
+Plan for moving the games' saves from localStorage to IndexedDB. Steps 1, 2 and 3 are built, tested and live
+(2026-10-12, games-web d1711ce). How it works now is in games-web docs/decisions.md, Storage. Touches saves, so it
 is LOCAL CLAUDE work.
 
 ## Why
