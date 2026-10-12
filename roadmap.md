@@ -29,6 +29,7 @@
 - Buy the domain. Then set VITE_PUBLIC_URL per game.
 - Old sites get no move notices for now. Flowdoku's old site has one already. Queens and Jam don't. If that changes,
   the owner adds one later.
+- flowdoku.netlify.app (old sudoku repo) has a move notice that tells players to use Settings, Transfer progress in the new app. That page is gone since the one save file replaced the transfer codes (2026-10-12). Before launch, reword it to point at Settings, Import progress, or remove it. The old repo needs the owner's go ahead.
 - Player data doesn't move between sites by itself. Players need transfer codes or files.
 - Telemetry on the new site needs one consent rule for all games, the Netlify functions and env vars, and a Metabase
   connection to prod.
