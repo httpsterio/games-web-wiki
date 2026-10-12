@@ -99,5 +99,5 @@ transfer files do now.
 1. The container, in packages/platform. Pure code and unit tests.
 2. One section module per game, from its transfer module, with unit tests.
 3. App settings: the store key, the bridge, the per-game `app` value, the page.
-4. Export and import on the app settings page. **Done, step 4a** 2026-10-12. Then the per-game transfer pages, codes
-   and modules go (step 4b).
+4. Export and import on the app settings page. **Done, step 4a** 2026-10-12. **Done, step 4b** 2026-10-12: the per-game
+   transfer pages, codes and modules are gone, along with Flowdoku's move notice.
