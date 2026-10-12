@@ -36,4 +36,4 @@
 - Flowdoku's debug menu must be off in production builds.
 - Reset Queens and Jam daily numbering and archive start to the public launch day. Both start on 1 September 2026 now.
 - Queens probably needs a new name or theme. See [Queens](queens.md).
-- Font: PP Supply Mono will be swapped for another font, so its web licence is not a concern.
+- Font: Geist Mono (OFL) is the default for text and Flowdoku's grid digits since 2026-10-12. PP Supply Mono is only a choice in the font trial picker. Before launch, pick the final font, then delete the picker, the trial fonts and PP Supply Mono, whose web licence was never checked.
