@@ -2,27 +2,19 @@
 
 ## Next refactor steps
 
-1. Shared platform package: storage helpers, viewport, haptics, back navigation, theme and the Animations rule.
-   Navigation uses the Queens and Jam model, which restores the screen after a reload. Flowdoku adopts it.
-   Theme gets a System option in every game.
-2. Unify behaviour: settings sheet, toasts, transfer core.
-3. Storage upgrade. Steps 1 to 3 are live: saves are in IndexedDB. Steps 4 and 5 are left, see [Storage upgrade](storage-upgrade.md).
-   - Move saves and logs to IndexedDB. Keep only small settings in localStorage.
-   - Ask the browser for persistent storage.
-   - Add an Export everything backup, as a file only, in the game selector.
-   - Per game transfer codes stay as they are.
-   - Reason: all games share one origin and roughly 5 MB of localStorage. Queens keeps a board for every finished
-     daily with no cap. Safari deletes site storage after 7 days without a visit unless the app was added to the home
-     screen.
-   - iPhone players get a gentle add to home screen nudge.
-   - Touches saves, so it is LOCAL CLAUDE work.
+1. Shared platform package: storage helpers, viewport and haptics are in place. System theme is available in every game
+   (2026-10-13), with an expandable Theme row on all four settings pages. Back navigation and the Animations rule still
+   need a focused status check. Flowdoku still returns to its main menu on reload, unlike Queens and Jam.
+2. Unify behaviour: settings work and the one save file replaced per-game transfer codes. One toast style remains open.
+3. Storage upgrade: steps 1 to 3 are live in IndexedDB. Step 4 was replaced by the one save file and is done. Step 5,
+   a gentle iPhone add-to-home-screen nudge, remains. See [Storage upgrade](storage-upgrade.md) and
+   [App settings and save file](app-settings-and-save-file.md).
 
 ## Recommended, waiting for the owner
 
-- Shared settings and one save file for all games: decided, see [App settings and save file](app-settings-and-save-file.md).
-- **Open.** One toast style for all games. The transfer codes are replaced by the one save file.
-- **Open.** Daily hubs (Flowdoku's Daily page, Queens' and Jam's Daily page) are not safe points for silent updates.
-  They hold nothing that a reload could lose, so they could be added.
+- **Open.** One toast style for all games. Flowdoku uses the top bar; Queens and Jam share a separate toast component.
+  Agree on the visible behavior before changing it.
+- Daily hubs are safe points for silent updates in all three games (2026-10-11).
 
 ## Before going public
 
