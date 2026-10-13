@@ -14,8 +14,8 @@ name or assets.
   shipped puzzle must have exactly one solution under the full rules.
 - Identical completed rows or columns are allowed in this first mode. Do not apply Takuzu's distinct-line rule. A
   separate Takuzu mode may come later; do not build it into the first version or make the first mode depend on it.
-- Support configurable double tap and long press interaction like Queens. The exact action mapping and which Queens
-  input options belong in Soluna still need a decision.
+- Tap an editable cell to cycle empty → sun → moon → empty. No double tap, long press, timing settings or Queens-style
+  mark key in the first mode. Fixed symbols do not cycle.
 - Provide a generated bank of challenges and a separate daily mode, following the app's existing navigation, settings,
   save and update conventions. The fourth-game integration checklist is in games-web `docs/decisions.md`, under
   "Adding a game".
@@ -24,8 +24,8 @@ name or assets.
 
 - Decide the placement and frequency of fixed symbols and `=` and `×` clues. Identical rows and columns are explicitly
   permitted; do not reject an otherwise valid board for matching lines.
-- Decide how a plain tap, double tap and long press place or clear the two symbols, and whether Soluna includes Queens'
-  mark-key alternatives, timing options, drag behavior and practice control.
+- Decide keyboard input and whether dragging across cells is useful. Do not add gesture settings just because Queens has
+  them.
 - Decide how the challenge bank is presented. A long ordered list, as in Jam, is the current recommendation; difficulty
   tiers need evidence from a human-style solver and generated puzzle distribution. Once published, a level number must
   continue to name the same puzzle so saved progress stays meaningful.
