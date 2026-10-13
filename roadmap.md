@@ -7,8 +7,8 @@
    need a focused status check. Flowdoku still returns to its main menu on reload, unlike Queens and Jam.
 2. Unify behaviour: settings work and the one save file replaced per-game transfer codes. One toast style remains open.
 3. Storage upgrade: steps 1 to 3 are live in IndexedDB. Step 4 was replaced by the one save file and is done. Step 5,
-   a gentle iPhone add-to-home-screen nudge, remains. See [Storage upgrade](storage-upgrade.md) and
-   [App settings and save file](app-settings-and-save-file.md).
+   a gentle iPhone add-to-home-screen notice, is built and awaits a real iPhone check. See
+   [Storage upgrade](storage-upgrade.md) and [App settings and save file](app-settings-and-save-file.md).
 
 ## Recommended, waiting for the owner
 

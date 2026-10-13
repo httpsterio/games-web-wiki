@@ -104,4 +104,7 @@ themselves.
 ## Later steps
 
 4. Replaced by the one save file, see [App settings and save file](app-settings-and-save-file.md).
-5. A gentle add to home screen nudge for iPhone players. Wording and placement are the owner's call.
+5. Built 2026-10-13 in games-web (3ebe3d3). A bordered notice on the selection menu appears on a return visit in
+   iPhone Safari, not in the installed app or when saving is unavailable. It says how to use Safari's Share menu to
+   add Games to the Home Screen. Dismissal is remembered only in that browser, outside game saves and the save file.
+   Browser emulation passed; real iPhone Safari and installed-app behavior still need the owner's check.
