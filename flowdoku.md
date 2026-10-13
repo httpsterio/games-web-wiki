@@ -13,8 +13,10 @@ walk-through.
 
 ## Techniques
 
-- **Open.** Naked Triple is never the easiest step, so it has no examples. Recommended: drop it from the technique
-  table.
+- **Tabled, owner call 2026-10-13.** Keep and teach Naked Triple. The current pool has no example where it is the
+  easiest available step. When the pools are regenerated, ensure puzzles exercise the plain Naked Triple as the selected
+  step in its intended Normal tier, and add a teaching example. Do not change the current numbered pools just to fill
+  this gap: pool changes need the saved-progress and daily-compatibility work in the pool regeneration plan.
 - Technique pages, next step: try it yourself. The player makes the move on the example. Wrong taps get a nudge. Next
   example cycles through the 5 to 8 stored examples per technique. Each technique shows progress like 3 of 6 done.
 
