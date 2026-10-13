@@ -7,6 +7,11 @@ name or assets.
 
 - Start with one 6×6 mode using sun and moon symbols and the LinkedIn-style rules. Some pairs of adjacent cells have an
   `=` or `×` clue between them: `=` means the two cells hold the same symbol, `×` means they hold different symbols.
+- Every row and column contains exactly three suns and three moons. No horizontal or vertical run may have three of
+  the same symbol.
+- A puzzle may start with fixed symbols as well as links. A fixed symbol can be one endpoint of a link, but usually is
+  not. Do not ship link-only puzzles with no fixed symbols: swapping every sun and moon gives another solution. Every
+  shipped puzzle must have exactly one solution under the full rules.
 - Identical completed rows or columns are allowed in this first mode. Do not apply Takuzu's distinct-line rule. A
   separate Takuzu mode may come later; do not build it into the first version or make the first mode depend on it.
 - Support configurable double tap and long press interaction like Queens. The exact action mapping and which Queens
@@ -17,8 +22,8 @@ name or assets.
 
 ## Open before implementation
 
-- Confirm the row and column balance and adjacency rules, whether the puzzle includes prefilled symbols, and the
-  placement and frequency of `=` and `×` clues. Identical rows and columns are explicitly permitted.
+- Decide the placement and frequency of fixed symbols and `=` and `×` clues. Identical rows and columns are explicitly
+  permitted; do not reject an otherwise valid board for matching lines.
 - Decide how a plain tap, double tap and long press place or clear the two symbols, and whether Soluna includes Queens'
   mark-key alternatives, timing options, drag behavior and practice control.
 - Decide how the challenge bank is presented. A long ordered list, as in Jam, is the current recommendation; difficulty
