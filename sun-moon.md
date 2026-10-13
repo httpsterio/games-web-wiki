@@ -18,7 +18,10 @@ name or assets.
   mark key in the first mode. Fixed symbols do not cycle.
 - Do not show immediate mistake feedback while a player cycles a cell. After a short delay of roughly 0.5 to 1 second
   without another tap, highlight an invalid completed row or column in red. A run of three identical symbols is an
-  exception: highlight that conflict even before its row or column is full. Do not reject the player's mark.
+  exception: highlight just the three offending cells in red even before its row or column is full. Do not reject the
+  player's mark. Evaluate visible conflicts from the public balance and no-three rules, not against the hidden solution.
+- Do not highlight an incorrect `=` or `×` link during play, even after both cells are filled. The owner does not want
+  link feedback to reveal which symbol to place. A complete board must still satisfy every link before it is solved.
 - Provide a generated bank of challenges and a separate daily mode, following the app's existing navigation, settings,
   save and update conventions. The fourth-game integration checklist is in games-web `docs/decisions.md`, under
   "Adding a game".
@@ -29,9 +32,8 @@ name or assets.
   permitted; do not reject an otherwise valid board for matching lines.
 - Decide keyboard input and whether dragging across cells is useful. Do not add gesture settings just because Queens has
   them.
-- Settle the exact delay and whether it resets after every tap. Decide when and how a violated `=` or `×` link is shown:
-  only after a row or column is full, or once both linked cells are filled. Specify whether a three-symbol run highlights
-  its three cells or the whole line.
+- Settle the exact delay and whether it resets after every tap. Decide how to respond when all cells are filled but
+  a link is violated without revealing which link or cell is wrong.
 - Decide how the challenge bank is presented. A long ordered list, as in Jam, is the current recommendation; difficulty
   tiers need evidence from a human-style solver and generated puzzle distribution. Once published, a level number must
   continue to name the same puzzle so saved progress stays meaningful.
