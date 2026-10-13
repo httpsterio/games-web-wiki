@@ -17,6 +17,7 @@ Open questions are marked **Open**.
 - [Decided rules](decided-rules.md): rules agreed for all games, as recorded in planning.
 - [Flowdoku](flowdoku.md): hint wording, technique pages, small open items.
 - [Queens](queens.md): name, daily start date, scoring.
+- [Sun and moon game](sun-moon.md): proposed fourth game and open rules.
 - [Monetization](monetization.md): subscriptions, lifetime unlock, payments.
 - [Accounts and hosting](accounts-and-hosting.md): login, sync, self hosting.
 - [Agent workflow](agent-workflow.md): who does what.
