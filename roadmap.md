@@ -5,15 +5,18 @@
 1. Shared platform package: storage helpers, viewport and haptics are in place. System theme is available in every game
    (2026-10-13), with an expandable Theme row on all four settings pages. Back navigation and the Animations rule still
    need a focused status check. Flowdoku still returns to its main menu on reload, unlike Queens and Jam.
-2. Unify behaviour: settings work and the one save file replaced per-game transfer codes. One toast style remains open.
+2. Unify behaviour: settings work and the one save file replaced per-game transfer codes. Queens, Jam and Flowdoku's
+   daily copy use the small bottom toast. Flowdoku's brief puzzle feedback appears over the board. The longer feedback
+   form result still uses the top bar; broader toast unification is not done.
 3. Storage upgrade: steps 1 to 3 are live in IndexedDB. Step 4 was replaced by the one save file and is done. Step 5,
    a gentle iPhone add-to-home-screen notice, is built and awaits a real iPhone check. See
    [Storage upgrade](storage-upgrade.md) and [App settings and save file](app-settings-and-save-file.md).
 
 ## Recommended, waiting for the owner
 
-- **Open.** One toast style for all games. Flowdoku uses the top bar; Queens and Jam share a separate toast component.
-  Agree on the visible behavior before changing it.
+- **Partial, 2026-10-13.** The short messages have their intended placements: general copy status at the bottom and
+  Flowdoku puzzle feedback over the upper board. The longer Flowdoku feedback-form result still replaces the top-bar
+  title in standalone mode; do not move it without a separate placement decision.
 - Daily hubs are safe points for silent updates in all three games (2026-10-11).
 
 ## Before going public
